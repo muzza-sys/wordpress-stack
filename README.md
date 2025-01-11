@@ -38,7 +38,7 @@
 
 1. **Clone the Repo** → **Edit `.env`** → **Run `docker-compose up -d`**  
 2. Docker will automatically:
-   - Configure WordPress with a database.  
+   - Configure WordPress with a database. (If you have a pre-exsisting WP.sql file, place into init_db before starting stack)
    - Schedule hourly backups to S3.  
    - Manage cron jobs for backups (inside Docker).  
 
