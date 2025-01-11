@@ -45,6 +45,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - db_data:/var/lib/mysql
+      - ./db-init:/docker-entrypoint-initdb.d  # Auto-executes SQL scripts on startup
     networks:
       - wordpress_network
 
@@ -67,6 +68,16 @@ services:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
+    depends_on:
+      - db
+    networks:
+      - wordpress_network
+
+  adminer:
+    image: adminer
+    container_name: wordpress_db_adminer
+    ports:
+      - "8080:8080"
     depends_on:
       - db
     networks:
