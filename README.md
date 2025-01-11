@@ -1,27 +1,38 @@
-# Optimized WordPress Docker Stack
+# 🚀 Optimized WordPress Docker Stack
 
-## 🚀 Quick Start
+## 🔥 Quick Start
 
-1. **Clone the repository:**
+1. **Clone the repository**  
    ```bash
    git clone https://github.com/muzza-sys/wordpress-optimized-stack.git
    cd wordpress-optimized-stack
-   ```
+Configure your environment
 
-2. **Configure your environment:**
-```cp .env.example .env
+bash
+Copy code
+cp .env.example .env
 nano .env
-```
+Start the stack
 
-3. **Deploy the stack:**
- ```chmod +x scripts/deploy.sh
-./scripts/deploy.sh
-```
-4. **Visit your site:**
-Open http://yourdomain.com in your browser.
+bash
+Copy code
+docker-compose up -d
+You're done! 🎉
 
-
-🔥 Features
+WordPress is running.
+Backups are automatic every hour to S3.
+💾 Features
 NGINX + PHP-FPM + MariaDB + Redis
 SSL with Let's Encrypt (Auto-renewal)
-FastCGI Caching
+Incremental backups to AWS S3 every hour
+yaml
+Copy code
+
+---
+
+### 🔥 **Completely Automated Workflow**
+1. Clone → Edit `.env` → Run `docker-compose up -d`.  
+2. Docker auto-configures:
+   - WordPress with database setup.  
+   - Hourly backups to S3 via the backup service.  
+   - Cron jobs for backups (inside Docker).  
